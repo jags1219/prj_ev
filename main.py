@@ -167,11 +167,11 @@ class WidgetGallery(QDialog):
         if text1 in self.ques_dict.keys():
             self.answer = self.ques_dict[text1]
             print(self.answer)
-            self.msg_lst.append("You: "+text + '\n'+ "                                          Bot: " + self.answer)
+            self.msg_lst.append("You: "+text + '\n'+ "    Bot: " + self.answer)
             multi_line_txt.clear()
         else:
             self.answer = "Give a Try Once more!! :)"
-            self.msg_lst.append("You: "+text + '\n'+ "                                          Bot: " + self.answer)
+            self.msg_lst.append("You: "+text + '\n'+ "    Bot: " + self.answer)
             multi_line_txt.clear()
 
 
