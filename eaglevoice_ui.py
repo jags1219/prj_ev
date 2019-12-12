@@ -8,7 +8,6 @@ from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDateTimeEdit,
                              QSlider, QSpinBox, QStyleFactory, QTableWidget, QTabWidget, QTextEdit,
                              QVBoxLayout, QWidget, QPlainTextEdit, QMainWindow)
 import json
-import sys
 
 
 class WidgetGallery(QWidget):
@@ -136,7 +135,7 @@ class WidgetGallery(QWidget):
         record_icon.addPixmap(QtGui.QPixmap(
             "Record_Btn.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         record_icon.addPixmap(QtGui.QPixmap(
-            "unmute.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            "unmute.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)            
 
         record_btn.setIconSize(QSize(50, 50))
         record_btn.setIcon(record_icon)
@@ -221,11 +220,8 @@ class WidgetGallery(QWidget):
 
 
 
-    def on_submit_btn_click(self, answer=None):
-        if answer:
-            text = answer
-        else:
-            text = multi_line_txt.toPlainText()
+    def on_submit_btn_click(self):
+        text = multi_line_txt.toPlainText()
         text1 = text.replace('\n', '').lower()
         if text1 in self.ques_dict.keys():
             self.answer.append(self.ques_dict[text1])
@@ -279,6 +275,7 @@ QPushButton:pressed {
 
 '''
 if __name__ == '__main__':
+    import sys
     app = QApplication(sys.argv)
     app.setStyleSheet(style)
     gallery = WidgetGallery()
