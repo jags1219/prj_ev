@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QDateTimeEdit,
 import json
 
 
-class WidgetGallery(QDialog):
+class WidgetGallery(QWidget):
     def __init__(self, parent=None):
         super(WidgetGallery, self).__init__(parent)
         self.answer = ""
@@ -134,6 +134,8 @@ class WidgetGallery(QDialog):
         record_icon = QtGui.QIcon()
         record_icon.addPixmap(QtGui.QPixmap(
             "Record_Btn.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        record_icon.addPixmap(QtGui.QPixmap(
+            "unmute.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)            
 
         record_btn.setIconSize(QSize(50, 50))
         record_btn.setIcon(record_icon)
@@ -162,6 +164,8 @@ class WidgetGallery(QDialog):
         multi_line_txt.resize(50, 60)
         multi_line_txt.setFixedHeight(60)
         multi_line_txt.textChanged.connect(self.press_enter_event)
+        font=QtGui.QFont('Arial',11)
+        multi_line_txt.setFont(font)
 
         grid = QGridLayout()
         grid.addWidget(multi_line_txt, 0, 0, 1, 5)
@@ -190,6 +194,7 @@ class WidgetGallery(QDialog):
         multi_line_txt_1.move(20, 10)
         multi_line_txt_1.resize(100, 100)
         multi_line_txt_1.setFixedHeight(300)
+        multi_line_txt_1.setReadOnly(True)
 
         layout = QGridLayout()
         layout.addWidget(multi_line_txt_1, 1, 0, 1, 2)
@@ -233,13 +238,13 @@ class WidgetGallery(QDialog):
         for que, ans in zip(self.ques_lst, self.answer):
             multi_line_txt_1.appendHtml(f"""<span style="border: 2px solid #dedede;
             background-color:  #f8c471;        
-            font-size: 14px;">
-            <b>You: </b>{que}<br></p></span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            font-size: 24px;">
+            <b>You: </b>{que}<br><br></p></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span
             style="background-color: skyblue;
-            font-size: 14px;">
-            <b>Bot: </b>{ans}</p><br></span>
+            font-size: 24px;">
+            <b></b>Bot: {ans}</p><br></span>
             """)
 
 
