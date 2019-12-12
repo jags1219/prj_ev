@@ -164,7 +164,7 @@ class WidgetGallery(QWidget):
         multi_line_txt.resize(50, 60)
         multi_line_txt.setFixedHeight(60)
         multi_line_txt.textChanged.connect(self.press_enter_event)
-        font=QtGui.QFont('Arial',11)
+        font=QtGui.QFont('Arial',18)
         multi_line_txt.setFont(font)
 
         grid = QGridLayout()
@@ -239,12 +239,15 @@ class WidgetGallery(QWidget):
             multi_line_txt_1.appendHtml(f"""<span style="border: 2px solid #dedede;
             background-color:  #f8c471;        
             font-size: 24px;">
-            <b>You: </b>{que}<br><br></p></span>
+            <b>You: </b>{que}<br></p></span>
+            <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span
+            
             style="background-color: skyblue;
-            font-size: 24px;">
-            <b></b>Bot: {ans}</p><br></span>
+            font-size: 24px;
+            text-align:right">
+            <b>Bot: </b>{ans}</p></span><br>
             """)
 
 
